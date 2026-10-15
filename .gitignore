@@ -6,3 +6,6 @@ __pycache__/
 venv/
 *.py[cod]
 .pytest_cache/
+# Local backup files
+*.backup
+*.backup.md
