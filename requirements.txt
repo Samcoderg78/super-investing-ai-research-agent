@@ -1,0 +1,2 @@
+# Runtime uses Python standard library only. No pip install required.
+# Gemini API is called via urllib; keep this file for reproducibility.
