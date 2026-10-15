@@ -154,3 +154,32 @@ These content checks should be distinguished from automated checks: a requiremen
 The three experiments demonstrate the practical value of progressively improving the prompt strategy. The baseline relied on a single article, the evidence-aware version incorporated multiple sources and surfaced contradictory revenue figures, and the strict version added stronger structural requirements and programmatic output validation.
 
 The main improvement was preserving the unresolved revenue discrepancy rather than selecting a figure without explanation. The tests provide additional checks for selected behaviors, while manual review remains necessary to assess factual support and research quality.
+
+
+## 10. Bonus Experiment — Live-data Research
+
+### Run 4 — TCS
+
+**Command:**
+```powershell
+python live_agent.py --ticker TCS
+```
+
+**Observed result:** Successfully retrieved eight news headlines and a market snapshot dated 15 October 2026. Gemini generated `outputs/live_tcs.md`.
+
+**Learning:** Combining recent headlines with market data provides a starting point for current research, but headlines are not substitutes for full articles or official financial disclosures.
+
+### Run 5 — Infosys
+
+**Command:**
+```powershell
+python live_agent.py --ticker INFY
+```
+
+**Observed result:** Successfully retrieved eight news headlines and a market snapshot dated 15 October 2026. Gemini generated `outputs/live_infy.md`.
+
+**Learning:** The same workflow worked on a second real NSE ticker. The generated brief identified uncertainty and limited evidence rather than claiming that headline-only coverage was sufficient for a complete investment analysis.
+
+### Bonus experiment limitations
+
+Both runs used Google News RSS and Yahoo Finance's chart endpoint, which are unofficial data interfaces. The retrieved market snapshots are not guaranteed to be real-time, and the briefs require independent verification against official disclosures. These experiments demonstrate successful execution, not independently verified investment conclusions.

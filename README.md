@@ -287,3 +287,29 @@ Refer to `test_log.md` for the observed experiment results and validation detail
 ## Disclaimer
 
 This is a fictional assignment project intended to demonstrate document processing, evidence-aware LLM prompting, source attribution, conflict detection, and output validation. It is not financial advice or a recommendation to buy or sell any security.
+
+
+## Bonus: Live-data Research
+
+The project includes an optional live-research module, `live_agent.py`, which retrieves recent news headlines through Google News RSS and market snapshots through Yahoo Finance's chart endpoint. It uses Gemini to generate a concise research brief with source IDs, publication dates, URLs, and open questions.
+
+### Run on real NSE tickers
+
+```powershell
+python live_agent.py --ticker TCS
+python live_agent.py --ticker INFY
+```
+
+Supported tickers are TCS, INFY, RELIANCE, HDFCBANK, and WIPRO. The script requires `GEMINI_API_KEY`.
+
+Generated outputs:
+- `outputs/live_tcs.md`
+- `outputs/live_infy.md`
+
+### Observations
+
+The TCS and Infosys runs each retrieved eight news headlines and generated a brief using Gemini. The results demonstrated that the agent could combine a market snapshot with recent news and explicitly acknowledge when evidence was limited to headlines.
+
+### Limitations
+
+Google News RSS and Yahoo Finance's chart endpoint are unofficial interfaces and may change or provide delayed data. Headlines alone cannot establish the full context of a company's financial results. Market figures and important claims should be verified against official company disclosures and exchange-authorized sources. The live briefs are for demonstration, not investment advice.
